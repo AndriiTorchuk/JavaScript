@@ -1,4 +1,4 @@
-// Exercise 1.
+// Exercise 2.
 // Scope Chain
 
 function a() {                  // execution 3
