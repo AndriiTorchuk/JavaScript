@@ -15,7 +15,7 @@ Object.defineProperty(
         set: function(value) {
             var nameParts = value.split(' ');
             this.name.first = nameParts[0];
-            this.name.last = nameParts[1]
+            this.name.last = nameParts[1];
         }
     }
 );
