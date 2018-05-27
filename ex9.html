@@ -1,0 +1,28 @@
+<html><!-- example.html : public domain -->
+<script language="JavaScript" type="text/JavaScript" >
+function alertContents(httpRequest) {
+  if (httpRequest.readyState == 4) {
+    // Everything is good, the response is received
+    if ((httpRequest.status == 200) || (httpRequest.status == 0)) {
+      // FIXME: perhaps a better example is to *replace* some text in the page.
+      var htmlDoc = document.createElement('div'); // Create a new, empty DIV node.
+      htmlDoc.innerHTML = httpRequest.responseText; // Place the returned HTML page inside the new node.
+      alert("The response was: " + httpRequest.status + httpRequest.responseText);
+    } else {
+      alert('There was a problem with the request. ' + httpRequest.status + httpRequest.responseText);
+    }
+  }
+}
+
+function send_with_ajax(the_url) {
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
+  httpRequest.open("GET", the_url, true);
+  httpRequest.send(null);
+}
+</script>
+
+<button onClick="send_with_ajax('example.html');">
+Click me!
+</button>
+</html>
